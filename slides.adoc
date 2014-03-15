@@ -360,7 +360,7 @@ image::github.jpg[]
 == !
 
 [{caption-off}, crole="band"]
-.github.com/lordofthejars
+.github.com/lordofthejars/javaland-ruby
 image::github.jpg[]
 
 [.topic.ending, hrole="name"]
