@@ -1,0 +1,371 @@
+= Using Ruby Beneath a Java API
+Alex Soto <http://github.com/lordofthejars[@alexsotob]>
+v1.0.0, Aug 1, 2013
+:copyright: CC BY-SA 2.0
+:website: http://asciidoctor.org
+:twitter: @alexsotob
+include::attributes.conf[]
+
+[.topic]
+== Who Am I?
+
+image::DukeWithHelmet.png[role="pull-left"]
+
+[.incremental.middle.pull-right]
+* Alex Soto
+* AsciidoctorJ lead and more projects
+* www.lordofthejars.com
+* *Javaist/Javaholic/...*
+
+== !
+
+[.statement]
++Asciidoctor+
+Open source implementation of AsciiDoc [ruby]#in Ruby#
+
+[.corner]
+image::rubygems.png[Ruby gem]
+
+[NOTE.speaker]
+====
+* "open source AsciiDoc renderer implemented in Ruby"
+* "which renders to html, docbook -> pdf, ebook, or also custom templates (slim or haml)"
+====
+
+== !
+
+[{caption-off}, crole="band"]
+.AsciiDoc is lightweight markup language
+image::ballon.jpg[]
+
+[NOTE.speaker]
+====
+* AsciiDoc is a lightweight markup language like Markdown, DocBook, Textile, MediaWiki but better because it is close to humans
+* "no worries about format, style or layout it is just plain text"
+====
+
+[.topic.source]
+== AsciiDoc
+
+[source, asciidoc]
+----
+include::snippets/sample-asciidoc.adoc[]
+----
+
+[.topic]
+== Rendered Document
+
+[.middle.stretch-x]
+image::render.jpg[]
+
+[.topic.terminal]
+== Enables Collaboration
+
+....
+$ binary: git merge fix-village
+warning: Cannot merge binary files: quijote.doc (HEAD vs. fix-village)
+
+Auto-merging quijote.doc
+CONFLICT (content): Merge conflict in quijote.doc
+Automatic merge failed; fix conflicts and then commit the result.
+$ binary: git diff master..fix-village
+diff --git a/quijote.doc b/quijote.doc
+index 4d7a47b..c8a6206 100644
+Binary files a/quijote.doc and b/quijote.doc differ
+....
+
+== !
+
+[{caption-off}, crole="band"]
+.Documentation is a living system
+image::live.jpg[]
+
+==!
+
+[.statement]
+... but it is in +Ruby+ ... 
+
+[.topic.source]
+== Why we need in Java?
+
+[.scatter.incremental]
+* Run in +Maven+, +Gradle+
+* +jvm+ languages (+Groovy+, +Scala+)
+* Run within +JavaEE+
+
+[.topic.source]
+== And for the rest of you
+
+[.scatter.incremental]
+* +Ruby+ offers *4441* gems some like _Tilt_ 
+* Write a DSL
+
+[.topic]
+== Ruby
+
+"Ruby is a dynamic, reflective, object-oriented, general-purpose programming language"
+-- Wikipedia
+
+[.corner]
+image::rubygems.png[Ruby gem]
+
+== !
+
+[.statement]
+Let's see some examples
+
+[.topic.source]
+== Classes
+
+[source, ruby]
+----
+include::snippets/class.rb[]
+----
+
+[.topic.source]
+== Literals
+
+[source, ruby]
+----
+include::snippets/literals.rb[]
+----
+
+[.topic.source]
+== Modules
+
+[source, ruby]
+----
+include::snippets/module.rb[]
+---- 
+
+[.topic]
+== JRuby
+
+image::jruby.png[role="pull-left"]
+
+[.statement]
++Java+ implementation of +Ruby+ language
+
+== !
+
+[{caption-off}, crole="band"]
+.RedBridge (Ruby Embedding)
+image::redbridge.jpg[]
+
+[.topic.source]
+== Asciidoctor
+
+[source, ruby]
+----
+include::snippets/asciidoctor.rb[]
+---- 
+
+== !
+
+[.elevate, {caption-off}]
+.Asciidoctor Java integration 
+image::asciidoctor-java.png[]
+
+[.topic.source]
+== Eval Example
+
+[source, java]
+----
+include::snippets/eval.java[]
+----
+
+[.topic.source]
+== Calling methods and autobinding
+
+[source, java]
+----
+include::snippets/method.java[]
+----
+
+[.topic]
+== Calling methods and autobinding
+
+[.middle]
+_x.something_ -> _x.getSomething()_
+_x.something = 42_ -> _x.setSomething(42)_
+_x.something?_ -> _x.isSomething()_
+_x.method_name_ -> _x.methodName()_
+
+[.topic.source]
+== Symbols
+
+[source, java]
+----
+include::snippets/symbols.java[]
+----
+
+[.topic.source]
+== Proxying Return Types
+
+[source, java]
+----
+include::snippets/proxy.java[]
+----
+
+[.topic]
+== Proxying Return Types
+
+[.middle]
+image::javaproxy.png[]
+
+== !
+
+[{caption-off}, crole="band"]
+.LazyInitializationException [joke]
+image::ada.jpg[]
+
+== !
+
+[{caption-off}, crole="band"]
+.What is it?
+image::duck.jpg[]
+
+[.topic]
+== Duck Typing
+
+"When I see a bird that walks like a duck and swims like a duck and quacks like a duck."
+-- James Whitcomb
+
+== !
+
+[{caption-off}, crole="band"]
+.Then I called a duck
+image::duck.jpg[]
+
+[.topic]
+== Asciidoctor Extension API
+
+[.statement]
+A group of classes to +modify content+.
+
+[.topic.source]
+== Example Of Extension
+
+[source, ruby]
+----
+include::snippets/extension.rb[]
+----
+
+[.topic.source]
+== Example Of Extension
+
+[source, java]
+----
+include::snippets/extension.java[]
+----
+
+== !
+
+[{caption-off}, crole="band"]
+.Standard format for distributing Ruby
+image::gem.jpg[]
+
+[.topic]
+== Structure of Code
+
+[.middle]
+....
+asciidoctor/
+├── bin/
+│   └── asciidoctor
+├── lib/
+│   └── asciidoctor/
+│   └── asciidoctor.rb
+├── data/
+├── features/
+├── man/
+├── test/
+│   └── attributes_test.rb
+├── README.adoc
+├── Gemfile
+├── Rakefile
+├── .travis.yml
+└── asciidoctor.gemspec
+....
+
+[.topic]
+== Classpath and Loadpath Unification
+
+[.incremental]
+* Everything in loadpath is a classpath entry.
+* Everything in classpath is a loadpath entry.
+* Java Structures (jar) can be loadpath entry.
+
+[.topic]
+== Embedding Asciidoctor
+
+[.corner]
+image::jar.png[]
+
+[.incremental]
+* Embed _asciidoctor_ _gem_ inside delivered jar.
+* Add _asciidoctor_ dependencies.
+* Can We Resolve Dependencies with _Maven_?.
+
+[.topic]
+== TorqueBox
+
+[.middle]
+image::proxy.png[]
+
+[.topic.source]
+== Maven Dependencies
+
+[source, xml]
+----
+include::snippets/pom.xml[]
+----
+
+== !
+
+[{caption-off}, crole="band"]
+.Continuous Integration becomes Continuous Waiting
+image::wait.jpg[]
+
+[.topic.source]
+== Building Gem with Maven
+
+[source, shell]
+----
+include::snippets/build.sh[]
+----
+
+[.topic]
+== Conclusions
+
+[.scatter.incremental]
+* _ScriptEngine_ and _jsr-223_.
+* You don't need _Ruby_ installation.
+* Alternatives for _jdk_ (Opal - Nashorn).
+* Java Dead? Long Live to _jvm_.
+* Inverse Path
+
+[.topic]
+== Conclusions
+
+[.middle.stretch-y]
+image::cookie_monster.jpg[]
+
+== !
+
+[{caption-off}, crole="band"]
+.github.com/asciidoctor/asciidoctorj
+image::github.jpg[]
+
+== !
+
+[{caption-off}, crole="band"]
+.github.com/lordofthejars
+image::github.jpg[]
+
+[.topic.ending, hrole="name"]
+== Thanks!
+
+[.footer]
+{author} {twitter}
+

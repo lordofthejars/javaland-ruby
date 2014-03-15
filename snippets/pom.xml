@@ -1,0 +1,19 @@
+<dependency>
+	<groupId>rubygems</groupId>
+	<artifactId>asciidoctor</artifactId>
+	<version>${asciidoctor.version}</version>
+	<type>gem</type>
+	<scope>provided</scope>
+</dependency>
+
+<plugin>
+	<groupId>de.saumya.mojo</groupId>
+	<artifactId>gem-maven-plugin</artifactId>
+	<version>1.0.0-rc4</version>
+	<configuration>
+	  <jrubyVersion>${jruby.version}</jrubyVersion>
+	  <gemHome>${project.build.directory}/classes</gemHome>
+	  <gemPath>${project.build.directory}/classes</gemPath>
+ 	</configuration>
+	<!-- Executions configuration -->
+</plugin>
