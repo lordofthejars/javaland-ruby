@@ -16,6 +16,6 @@ public interface AsciidoctorModuleClass {
   Object render(String content, Map<String, Object> options);
   Object render_file(String filename, Map<String, Object> options);
 }
-Object rfj = evaler.eval(runtime, "AsciidoctorModuleClass.new()");
+Object rfj = evaler.eval(runtime, "AsciidoctorModule.new()");
 
 AsciidoctorModuleClass amc = JavaEmbedUtils.rubyToJava(runtime, (org.jruby.runtime.builtin.IRubyObject) rfj, AsciidoctorModuleClass.class);
