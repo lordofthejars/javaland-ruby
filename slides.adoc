@@ -52,6 +52,12 @@ image::ballon.jpg[]
 include::snippets/sample-asciidoc.adoc[]
 ----
 
+[NOTE.speaker]
+====
+* "it is plain text with some metadata"
+* "which renders to html, docbook -> pdf, ebook, or also custom templates (slim or haml)"
+====
+
 [.topic]
 == Rendered Document
 
@@ -80,25 +86,26 @@ Binary files a/quijote.doc and b/quijote.doc differ
 .Documentation is a living system
 image::live.jpg[]
 
-==!
+[NOTE.speaker]
+====
+* "render docs in build pipeline"
+====
 
-[.statement]
-... but it is in +Ruby+ ... 
-
-[.topic.source]
+[.topic]
 == Why we need in Java?
 
 [.scatter.incremental]
-* Run in +Maven+, +Gradle+
-* +jvm+ languages (+Groovy+, +Scala+)
-* Run within +JavaEE+
+* Run in _Maven_, _Gradle_
+* _jvm_ languages (_Groovy_, _Scala_)
+* Run within _Java EE_
 
-[.topic.source]
+[.topic]
 == And for the rest of you
 
 [.scatter.incremental]
-* +Ruby+ offers *4441* gems some like _Tilt_ 
-* Write a DSL
+* _Ruby_ offers *4441* gems some like _Tilt_ 
+* Write a _DSL_
+* For fun and profit
 
 [.topic]
 == Ruby
@@ -123,11 +130,19 @@ include::snippets/class.rb[]
 ----
 
 [.topic.source]
-== Literals
+== Blocks
 
 [source, ruby]
 ----
 include::snippets/literals.rb[]
+----
+
+[.topic.source]
+== Methods and Overloading
+
+[source, ruby]
+----
+include::snippets/method.rb[]
 ----
 
 [.topic.source]
@@ -144,21 +159,23 @@ include::snippets/module.rb[]
 image::jruby.png[role="pull-left"]
 
 [.statement]
-+Java+ implementation of +Ruby+ language
+_Java_ implementation of _Ruby_ language
+
+[NOTE.speaker]
+====
+* "Allows us to reuse existing Ruby code inside JVM"
+====
 
 == !
 
 [{caption-off}, crole="band"]
-.RedBridge (Ruby Embedding)
+.The Ruby Bridge
 image::redbridge.jpg[]
 
-[.topic.source]
-== Asciidoctor
-
-[source, ruby]
-----
-include::snippets/asciidoctor.rb[]
----- 
+[NOTE.speaker]
+====
+* "RedBridge is an small part of JRuby to embed Ruby code atop Java program"
+====
 
 == !
 
@@ -241,7 +258,7 @@ image::duck.jpg[]
 == Asciidoctor Extension API
 
 [.statement]
-A group of classes to +modify content+.
+A group of classes to _modify content_.
 
 [.topic.source]
 == Example Of Extension
@@ -266,30 +283,8 @@ include::snippets/extension.java[]
 image::gem.jpg[]
 
 [.topic]
-== Structure of Code
-
-[.middle]
-....
-asciidoctor/
-├── bin/
-│   └── asciidoctor
-├── lib/
-│   └── asciidoctor/
-│   └── asciidoctor.rb
-├── data/
-├── features/
-├── man/
-├── test/
-│   └── attributes_test.rb
-├── README.adoc
-├── Gemfile
-├── Rakefile
-├── .travis.yml
-└── asciidoctor.gemspec
-....
-
-[.topic]
 == Classpath and Loadpath Unification
+
 
 [.incremental]
 * Everything in loadpath is a classpath entry.
@@ -327,6 +322,11 @@ include::snippets/pom.xml[]
 .Continuous Integration becomes Continuous Waiting
 image::wait.jpg[]
 
+[NOTE.speaker]
+====
+* "we could only integrate when Ruby part was released."
+====
+
 [.topic.source]
 == Building Gem with Maven
 
@@ -344,6 +344,13 @@ include::snippets/build.sh[]
 * Alternatives for _jdk_ (Opal - Nashorn).
 * Java Dead? Long Live to _jvm_.
 * Inverse Path
+
+[NOTE.speaker]
+====
+* "RubyEmbedUtils are low level - ScriptEngine high level"
+* "No excuses you can start Ruby without ay installation."
+* "But remember there is beyond Java"
+====
 
 [.topic]
 == Conclusions

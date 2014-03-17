@@ -1,19 +1,22 @@
- require 'asciidoctor' 
- class MyClass < Parent
-    attr_accessor :foo
+require 'asciidoctor' 
+
+ class Person
+   attr_accessor :first, :last, :weight, :height
  
-    def initialize
-      @foo = 28
-    end
-
-    def has_more_lines?
-    end
-
-    def process_line line
-    end
-
-  end
+   def initialize(params = {})
+     @first = params[:first]
+     @last = params[:last]
+     @weight = params[:weight]
+     @height = params[:height]   
+   end
+  
+   def has_more_lines?
+   end
+ end
  
-  instance = MyClass.new
-  puts instance.foo
-  instance.foo = 496
+ p = Person.new(
+   height: 170cm,
+   weight: 72,
+   last: 'Doe',
+   first: 'John'
+ )

@@ -2,7 +2,7 @@
 require 'java'
 require 'asciidoctor'
 
-class AsciidoctorModule	java_implements Java::AsciidoctorModuleClass
+class AsciidoctorModule	
   def render_file(content, options = {})
     return Asciidoctor.render_file(content, options)
   end
@@ -14,7 +14,7 @@ end
 //Java
 public interface AsciidoctorModuleClass {  
   Object render(String content, Map<String, Object> options);
-  Object render_file(String filename, Map<String, Object> options);
+  Object renderFile(String filename, Map<String, Object> options);
 }
 Object rfj = evaler.eval(runtime, "AsciidoctorModule.new()");
 
