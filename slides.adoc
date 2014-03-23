@@ -192,31 +192,6 @@ include::snippets/eval.java[]
 ----
 
 [.topic.source]
-== Calling methods and autobinding
-
-[source, java]
-----
-include::snippets/method.java[]
-----
-
-[.topic]
-== Calling methods and autobinding
-
-[.middle]
-_x.something_ -> _x.getSomething()_
-_x.something = 42_ -> _x.setSomething(42)_
-_x.something?_ -> _x.isSomething()_
-_x.method_name_ -> _x.methodName()_
-
-[.topic.source]
-== Symbols
-
-[source, java]
-----
-include::snippets/symbols.java[]
-----
-
-[.topic.source]
 == Proxying Return Types
 
 [source, java]
@@ -235,6 +210,23 @@ image::javaproxy.png[]
 [{caption-off}, crole="band"]
 .LazyInitializationException [joke]
 image::ada.jpg[]
+
+[.topic]
+== Calling methods and autobinding
+
+[.middle]
+_x.something_ -> _x.getSomething()_
+_x.something = 42_ -> _x.setSomething(42)_
+_x.something?_ -> _x.isSomething()_
+_x.method_name_ -> _x.methodName()_
+
+[.topic.source]
+== Symbols
+
+[source, java]
+----
+include::snippets/symbols.java[]
+----
 
 == !
 
